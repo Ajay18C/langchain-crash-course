@@ -3,6 +3,7 @@ from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
+import os
 
 # Setup environment variables and messages
 load_dotenv()
@@ -16,7 +17,7 @@ messages = [
 # ---- LangChain OpenAI Chat Model Example ----
 
 # Create a ChatOpenAI model
-model = ChatOpenAI(model="gpt-4o")
+model = ChatOpenAI(base_url= os.getenv("BASE_URL"), model="gpt-4o")
 
 # Invoke the model with messages
 result = model.invoke(messages)

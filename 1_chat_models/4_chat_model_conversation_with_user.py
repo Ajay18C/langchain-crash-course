@@ -1,12 +1,14 @@
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
+import os
 
 # Load environment variables from .env
 load_dotenv()
 
 # Create a ChatOpenAI model
-model = ChatOpenAI(model="gpt-4o")
+model = ChatOpenAI(base_url= os.getenv("BASE_URL"), model="gpt-4o")
+
 
 
 chat_history = []  # Use a list to store messages
